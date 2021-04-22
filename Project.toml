@@ -3,6 +3,10 @@ uuid = "3cf690db-7a8f-48f4-86e6-5b3b8c7f604f"
 authors = ["Wimmerer <wrkimmerer@outlook.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+Clang = "40e3b903-d033-50b4-a0cc-940c62c95e31"
+Clingo_jll = "e1d4ad0e-dc8b-5d2d-8155-e9a55b531f08"
+
 [compat]
 julia = "1"
 
