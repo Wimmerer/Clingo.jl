@@ -1,5 +1,5 @@
 module LibClingo
-
+using Clingo_jll: libclingo
 const clingo_literal_t = Int32
 
 const clingo_atom_t = UInt32
