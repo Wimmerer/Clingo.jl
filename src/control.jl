@@ -3,17 +3,21 @@ struct Control
 end
 
 function Control()
+    Control(["0"])
+    return Control(p[])
+end
+function Control(args::Vector{String}, logger = C_NULL, logger_data=C_NULL, message_limit=20)
     p = Ref(Ptr{LibClingo.clingo_control}())
-    @wraperror LibClingo.clingo_control_new(C_NULL, 0, C_NULL, C_NULL, 100, p)
+    @wraperror LibClingo.clingo_control_new(args, length(args), logger, logger_data, message_limit, p)
     return Control(p[])
 end
 
-function add(ctl::Control, program::AbstractString)
-    @wraperror LibClingo.clingo_control_add(ctl.p, pointer("base"), C_NULL, 0, pointer(program))
+function add(ctl::Control, program::String)
+    add(ctl, "base", String[], program)
 end
 
-function add(ctl::Control, part::String, program::String)
-    @wraperror LibClingo.clingo_control_add(ctl.p, pointer(part), C_NULL, 0, pointer(program))
+function add(ctl::Control, part::String, parameters::Vector{String}, program::String)
+    @wraperror LibClingo.clingo_control_add(ctl.p, pointer(part), parameters, length(parameters), pointer(program))
 end
 
 function ground(ctl::Control, parts::Vector{LibClingo.clingo_part}=[LibClingo.clingo_part(pointer("base"),C_NULL, 0)], callback=C_NULL, callback_data=C_NULL)
