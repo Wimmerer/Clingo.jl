@@ -1,10 +1,5 @@
-struct Control
-    p::Ptr{LibClingo.clingo_control}
-end
-
 function Control()
-    Control(["0"])
-    return Control(p[])
+    return Control(["0"])
 end
 function Control(args::Vector{String}, logger = C_NULL, logger_data=C_NULL, message_limit=20)
     p = Ref(Ptr{LibClingo.clingo_control}())
