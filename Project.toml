@@ -5,6 +5,7 @@ version = "0.1.0"
 
 [deps]
 Clingo_jll = "e1d4ad0e-dc8b-5d2d-8155-e9a55b531f08"
+MacroTools = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
 
 [compat]
 julia = "1"
